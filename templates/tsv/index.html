@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="center">
+        <span>오늘 당신의 하루는 어떠셨나요?</span>
+    </div>
+    <div class="center">
+        <span>하루를 마무리하면서 간단한 질문들을 통해 하루를 기록해보아요.</span>
+    </div>
+    <button type="button" class="start_btn" onclick="location.href='{% url 'tsv:answers_create' %}'">START</button>
+
+{% endblock %}
