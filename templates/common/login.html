@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="center">
+        <h3>Sign in</h3>
+    </div>
+        <form method="post" class="login_form" action="{% url 'common:login' %}">
+            {% csrf_token %}
+            <input type="hidden" name="text" value="{{ next }}">
+                <input type="text" placeholder="Enter username" name="username" id="username" value="{{ form.username.value|default_if_none:'' }}">
+                <input type="password" placeholder="Enter password" name="password" id="password" value="{{ form.password.value|default_if_none:'' }}">
+                <input type="email" placeholder="Enter email" name="email" id="email" value="{{ form.email.value|default_if_none:'' }}">
+            <button type="submit" class="login_btn">Sign in</button>
+        </form>
+        <span class="login_bottom_text">아직 회원이 아니십니까?&nbsp;&nbsp;<a class="go_signup" href="{% url 'common:signup' %}">회원가입</a></span>
+{% endblock %}
