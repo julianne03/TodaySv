@@ -1,0 +1,7 @@
+{% load static %}
+<div class="navbar">
+    <img class="logo" src="{% static 'images/todaySv.png' %}" width="90" height="60" onclick="location.href='{% url 'tsv:index' %}'" />
+    <div class="right">
+        <a class="login_txt" href="{% url 'common:login' %}">Sign in</a>
+    </div>
+</div>
