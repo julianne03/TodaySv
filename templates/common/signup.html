@@ -5,22 +5,8 @@
     </div>
     <form method="post" class="login_form">
             {% csrf_token %}
-            {% if form.errors %}
-    {% for field in form %}
-        {% for error in field.errors %}  <!-- 필드 오류를 출력한다. -->
-            <div class="alert alert-danger">
-                <strong>{{ field.label }}</strong>
-                {{ error }}
-            </div>
-        {% endfor %}
-    {% endfor %}
-    {% for error in form.non_field_errors %}   <!-- 넌필드 오류를 출력한다. -->
-        <div class="alert alert-danger">
-            <strong>{{ error }}</strong>
-        </div>
-    {% endfor %}
-{% endif %}
-                <input type="text" placeholder="Enter username" name="username" id="username" value="{{ form.username.value|default_if_none:'' }}">
+            {% include 'form_errors.html' %}
+                <input class="username_input" type="text" placeholder="Enter username" name="username" id="username" value="{{ form.username.value|default_if_none:'' }}">
                 <input type="password" placeholder="Enter password" name="password1" id="password1" value="{{ form.password.value|default_if_none:'' }}">
                 <input type="password" placeholder="Confirm password" name="password2" id="password2" value="{{ form.password2.value|default_if_none:'' }}">
                 <input type="email" placeholder="Enter email" name="email" id="email" value="{{ form.email.value|default_if_none:'' }}">

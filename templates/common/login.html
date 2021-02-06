@@ -5,8 +5,9 @@
     </div>
         <form method="post" class="login_form" action="{% url 'common:login' %}">
             {% csrf_token %}
+            {% include 'form_errors.html' %}
             <input type="hidden" name="text" value="{{ next }}">
-                <input type="text" placeholder="Enter username" name="username" id="username" value="{{ form.username.value|default_if_none:'' }}">
+                <input class="username_input" type="text" placeholder="Enter username" name="username" id="username" value="{{ form.username.value|default_if_none:'' }}">
                 <input type="password" placeholder="Enter password" name="password" id="password" value="{{ form.password.value|default_if_none:'' }}">
             <button type="submit" class="login_btn">Sign in</button>
         </form>
