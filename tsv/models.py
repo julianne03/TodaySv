@@ -3,7 +3,8 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Answers(models.Model) :
     username = models.ForeignKey(User, on_delete=models.CASCADE)
-    create_date = models.DateTimeField()
+    answer_date = models.DateTimeField()
+    cm_answer_date = models.DateTimeField(null=True)
     weather = models.CharField(max_length=80, null=True)
     mood = models.CharField(max_length=80, null=True)
     wake_up = models.DateTimeField(null=True)
