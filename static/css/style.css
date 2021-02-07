@@ -138,6 +138,20 @@ input[type=radio]:checked + label {
     color: black;
 }
 
+.username_txt {
+    float: right;
+    text-decoration: none;
+    margin-left: 80%;
+    color: black;
+}
+
+.logout_txt {
+    float: right;
+    text-decoration: none;
+    margin-left: 3%;
+    color: black;
+}
+
 .right a:hover {
     color: #484eff;
     animation: fadeIn 0.5s ease-in-out forwards;
