@@ -1,7 +1,7 @@
 from django import forms
 from tsv.models import Answers
 
-class AnswersForm(forms.ModelForm) :
+class WeatherForm(forms.ModelForm) :
     class Meta :
         model = Answers
-        fields = ['weather', 'mood']
+        fields = ['weather']
