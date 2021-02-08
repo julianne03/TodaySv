@@ -220,6 +220,33 @@ input[type=radio]:checked + label {
     font-family: "Noto Sans KR", sans-serif;
 }
 
+.text-form {
+    width: 55%;
+}
+
+.text-form input {
+  background: none;
+  appearance: none;
+  border: 0;
+  font-size: 22px;
+  color: black;
+  width: 100%;
+  border-bottom: 2px solid black;
+  text-align: center;
+  margin-top: 10%;
+  margin-bottom: 5%;
+}
+
+.text-form input::placeholder {
+  color: black;
+  text-align: center;
+}
+
+.text-form input:focus,
+.text-form input:active {
+  outline: none;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;

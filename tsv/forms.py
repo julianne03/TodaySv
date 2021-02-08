@@ -25,3 +25,11 @@ class WakeUpForm(forms.ModelForm) :
         labels = {
             'wake_up' : '일어난 시각',
         }
+class DidWellForm(forms.ModelForm) :
+    class Meta :
+        model = Answers
+        fields = ['did_well']
+
+        labels = {
+            'did_well' : '가장 잘한 일',
+        }

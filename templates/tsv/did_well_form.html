@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="center">
+        <span>오늘 가장 잘한 일은 무엇인가요?</span>
+    </div>
+    <form method="post" class="text-form">
+        {% csrf_token %}
+        {% include 'form_errors.html' %}
+        <div class="center">
+            <input type="text" name="did_well" value="{{ form.did_well.value|default_if_none:'' }}" maxlength="50"/>
+        </div>
+        <div class="center">
+            <button type="submit" class="next_btn">NEXT</button>
+        </div>
+
+    </form>
+
+{% endblock %}
