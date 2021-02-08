@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="center">
+        <span>오늘 몇시에 일어났나요?</span>
+    </div>
+    <form method="post" class="answer-form">
+        {% csrf_token %}
+        {% include 'form_errors.html' %}
+        <div class="center">
+            <input type="time" class="wake_up_input" min="01:00" max="24:00" name="wake_up" value="{{ form.wake_up.value|default_if_none:'' }}" required/>
+        </div>
+        <div class="center">
+            <button type="submit" class="next_btn">NEXT</button>
+        </div>
+
+    </form>
+
+{% endblock %}

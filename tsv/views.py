@@ -4,7 +4,7 @@ from datetime import datetime
 from django.utils import timezone
 
 from .models import Answers
-from .forms import WeatherForm, MoodForm
+from .forms import WeatherForm, MoodForm, WakeUpForm
 
 @login_required(login_url='common:login')
 def index(request) :
@@ -42,3 +42,19 @@ def answers_mood(request) :
         form = MoodForm(instance=answer)
     context = {'form': form}
     return render(request, 'tsv/mood_form.html', context)
+
+@login_required(login_url='common:login')
+def answers_wake_up(request) :
+    date = f'{datetime.now().year}-{datetime.now().month}-{datetime.now().day}'
+    answer, is_exists = Answers.objects.get_or_create(username_id=request.user.id, answer_date=date)
+    if request.method == 'POST':
+        form = WakeUpForm(request.POST, instance=answer)
+        if form.is_valid():
+            answer = form.save(commit=False)
+            answer.cm_answer_date = timezone.now()
+            answer.save()
+            return redirect('tsv:answers_did_well')
+    else:
+        form = WakeUpForm(instance=answer)
+    context = {'form': form}
+    return render(request, 'tsv/wake_up_form.html', context)
