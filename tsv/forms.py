@@ -41,3 +41,11 @@ class HappinessForm(forms.ModelForm) :
         labels = {
             'happiness' : '가장 행복했던 일',
         }
+class MealForm(forms.ModelForm) :
+    class Meta :
+        model = Answers
+        fields = {
+            'breakfast' : '아침',
+            'lunch' : '점심',
+            'dinner' : '저녁',
+        }

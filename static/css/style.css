@@ -247,6 +247,14 @@ input[type=radio]:checked + label {
   outline: none;
 }
 
+#breakfast, #lunch {
+    margin-bottom: 0%;
+}
+
+#breakfast, #lunch, #dinner {
+    width: 90%;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;

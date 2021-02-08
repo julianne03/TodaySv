@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="center">
+        <span>오늘의 식사 메뉴는 무엇인가요?</span>
+    </div>
+    <form method="post" class="text-form">
+        {% csrf_token %}
+        {% include 'form_errors.html' %}
+        <div>
+            <input type="text" id="breakfast" name="breakfast" placeholder="아침 메뉴" value="{{ form.breakfast.value|default_if_none:'' }}" maxlength="30"/>
+            <input type="text" id="lunch" name="lunch" placeholder="점심 메뉴" value="{{ form.lunch.value|default_if_none:'' }}" maxlength="30"/>
+            <input type="text" id="dinner" name="dinner" placeholder="저녁 메뉴" value="{{ form.dinner.value|default_if_none:'' }}" maxlength="30"/>
+        </div>
+        <div class="center">
+            <button type="submit" class="next_btn">NEXT</button>
+        </div>
+
+    </form>
+
+{% endblock %}

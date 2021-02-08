@@ -11,4 +11,5 @@ urlpatterns = [
     path('answers/create/wake_up/', views.answers_wake_up, name='answers_wake_up'),
     path('answers/create/did_well/', views.answers_did_well, name='answers_did_well'),
     path('answers/create/happiness/', views.answers_happiness, name='answers_happiness'),
+    path('answers/create/meal/', views.answers_meal, name='answers_meal'),
 ]
