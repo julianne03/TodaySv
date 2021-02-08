@@ -4,7 +4,7 @@ from datetime import datetime
 from django.utils import timezone
 
 from .models import Answers
-from .forms import WeatherForm, MoodForm, WakeUpForm, DidWellForm
+from .forms import WeatherForm, MoodForm, WakeUpForm, DidWellForm, HappinessForm
 
 @login_required(login_url='common:login')
 def index(request) :
@@ -74,3 +74,19 @@ def answers_did_well(request) :
         form = DidWellForm(instance=answer)
     context = {'form': form}
     return render(request, 'tsv/did_well_form.html', context)
+
+@login_required(login_url='common:login')
+def answers_happiness(request) :
+    date = f'{datetime.now().year}-{datetime.now().month}-{datetime.now().day}'
+    answer, is_exists = Answers.objects.get_or_create(username_id=request.user.id, answer_date=date)
+    if request.method == 'POST':
+        form = HappinessForm(request.POST, instance=answer)
+        if form.is_valid():
+            answer = form.save(commit=False)
+            answer.cm_answer_date = timezone.now()
+            answer.save()
+            return redirect('tsv:answers_meal')
+    else:
+        form = HappinessForm(instance=answer)
+    context = {'form': form}
+    return render(request, 'tsv/happiness_form.html', context)

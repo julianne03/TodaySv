@@ -33,3 +33,11 @@ class DidWellForm(forms.ModelForm) :
         labels = {
             'did_well' : '가장 잘한 일',
         }
+class HappinessForm(forms.ModelForm) :
+    class Meta :
+        model = Answers
+        fields = ['happiness']
+
+        labels = {
+            'happiness' : '가장 행복했던 일',
+        }
