@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="center">
+        <span>오늘의 기분은 어떤가요?</span>
+    </div>
+    <form method="post" class="answer-form">
+            {% csrf_token %}
+            {% include 'form_errors.html' %}
+            <ul>
+                <li>
+                    <input type="radio" value="happy" id="happy" name="mood" />
+                    <label for="happy"><img src='{% static 'images/happy.png' %}' width="80" height="80" /></label>
+                </li>
+                <li>
+                    <input type="radio" value="soso" id="soso" name="mood" />
+                    <label for="soso"><img src='{% static 'images/no-expression.png' %}' width="80" height="80" /></label>
+                </li>
+                <li>
+                    <input type="radio" value="surprised" id="surprised" name="mood" />
+                    <label for="surprised"><img src='{% static 'images/surprised.png' %}' width="80" height="80" /></label>
+                </li>
+                <li>
+                    <input type="radio" value="sad" id="sad" name="mood" />
+                    <label for="sad"><img src='{% static 'images/crying.png' %}' width="80" height="80" /></label>
+                </li>
+                <li>
+                    <input type="radio" value="angry" id="angry" name="mood" />
+                    <label for="angry"><img src='{% static 'images/annoyed.png' %}' width="80" height="80" /></label>
+                </li>
+            </ul>
+        <div class="center">
+            <button type="submit" class="next_btn">NEXT</button>
+        </div>
+
+    </form>
+
+{% endblock %}

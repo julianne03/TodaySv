@@ -9,3 +9,11 @@ class WeatherForm(forms.ModelForm) :
         labels = {
             'weather' : '날씨',
         }
+class MoodForm(forms.ModelForm) :
+    class Meta :
+        model = Answers
+        fields = ['mood']
+
+        labels = {
+            'mood' : '기분',
+        }
