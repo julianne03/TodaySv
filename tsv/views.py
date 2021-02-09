@@ -5,6 +5,7 @@ from django.utils import timezone
 
 from .forms import *
 from .models import Answers
+from .models import Profile
 
 @login_required(login_url='common:login')
 def index(request) :
@@ -106,3 +107,8 @@ def answers_meal(request) :
         form = MealForm(instance=answer)
     context = {'form': form}
     return render(request, 'tsv/meal_form.html', context)
+
+@login_required(login_url='common:login')
+def my_page(request) :
+    person = Profile.objects.get_or_create(user=request.user)
+    return render(request, 'tsv/my_page.html', {'person' : person})

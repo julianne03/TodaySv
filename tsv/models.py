@@ -13,3 +13,8 @@ class Answers(models.Model) :
     breakfast = models.CharField(max_length=100, null=True)
     lunch = models.CharField(max_length=100, null=True)
     dinner = models.CharField(max_length=100, null=True)
+
+class Profile(models.Model) :
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    nickname = models.CharField(max_length=10, blank=True)
+    image = models.ImageField(blank=True)
