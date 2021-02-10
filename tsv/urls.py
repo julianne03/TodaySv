@@ -13,4 +13,5 @@ urlpatterns = [
     path('answers/create/happiness/', views.answers_happiness, name='answers_happiness'),
     path('answers/create/meal/', views.answers_meal, name='answers_meal'),
     path('my_page/', views.my_page, name='my_page'),
+    path('my_page/edit_profile/', views.edit_profile, name='edit_profile'),
 ]
