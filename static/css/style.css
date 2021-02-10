@@ -293,16 +293,153 @@ input[type=radio]:checked + label {
     background: white;
     border: none;
     border-radius: 10px;
-    width: 40%;
+    width: 35%;
     height: 80%;
     float: left;
     align-self: center;
-    margin-left: 2%;
     margin-top: 2%;
+    margin-left: 2%;
 }
 
 .profile-box img {
     border: none;
-    border-radius: 100px;
     margin-top: 5%;
+    width: 20%;
+    height: 20%;
+}
+
+.profile-content {
+    margin-top: 4%;
+    margin-left: 5%;
+    margin-bottom: 8%;
+}
+
+.profile-content span {
+    font-size: large;
+}
+
+.profile-content div {
+    margin-bottom: 1%;
+}
+
+.small-label {
+    color: #a3a3a3;
+    font-size: small;
+    margin: 0;
+}
+
+.edit-profile {
+    padding: 16px 25px;
+    border: none;
+    border-radius: 10px;
+    width: 50%;
+    text-align: center;
+    font-size: medium;
+    cursor: pointer;
+    color: white;
+    background-color: #8eefcf;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+}
+
+.edit-profile:hover {
+    background-color: #2ee59d;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+}
+
+.edit-profile:focus,
+.edit-profile:active {
+  outline: none;
+}
+
+.edit-profile-form {
+    margin-left: 2%;
+    margin-top: 2%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+}
+
+.filebox {
+    display: block;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    float: left;
+    width: 40%;
+}
+
+.filebox input[type="file"] {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip:rect(0,0,0,0);
+	border: 0;
+}
+
+.filebox label {
+	display: inline-block;
+	padding: .5em .75em;
+	color: #999;
+	font-size: inherit;
+	line-height: normal;
+	vertical-align: middle;
+	background-color: #fdfdfd;
+	cursor: pointer;
+	border: 1px solid #ebebeb;
+	border-bottom-color: #e2e2e2;
+	border-radius: .25em;
+}
+
+.filebox img {
+    margin-top: 3%;
+    display: block;
+    margin-bottom: 3%;
+    width: 50%;
+    height: 50%;
+    overflow: hidden;
+    box-shadow: 0px 15px 20px rgba(157, 158, 157, 0.4);
+}
+
+.textbox {
+    float: right;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.textbox input {
+    padding: 2%;
+    border: none;
+    background: white;
+    border-radius: 10px;
+    width: 80%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+    font-size: large;
+}
+
+.save_btn {
+    padding: 16px 25px;
+    border: none;
+    border-radius: 10px;
+    width: 30%;
+    margin-top: 8%;
+    text-align: center;
+    font-size: large;
+    cursor: pointer;
+    color: white;
+    background-color: #8eefcf;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+}
+
+.save_btn:hover {
+    background-color: #2ee59d;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+}
+
+.save_btn:focus,
+.save_btn:active {
+  outline: none;
 }

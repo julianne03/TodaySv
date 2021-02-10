@@ -7,14 +7,29 @@
         </div>
         <div class="profile-box">
             <div class="center">
-                {% if person.profile.image %}
-                    <img src="{{ person.image.url }}" width="90" height=90>
+                {% if person.image %}
+                    <img src="{{ person.image.url }}">
                 {% else %}
-                    <img src="{% static 'images/profile_image.png' %}" width="90" height="90">
+                    <img src="{% static 'images/profile_image.png' %}">
                 {% endif %}
             </div>
-            <p>UserName: {{ person.username }}</p>
-            <p>Name: {{ person.nickname }}</p>
+            <div class="profile-content">
+                <div>
+                    <p class="small-label">Username</p>
+                    <span>{{ user.username }}</span>
+                </div>
+                <div>
+                    <p class="small-label">Name</p>
+                    <span>{% if person.nickname %}{{ person.nickname }}{% else %}&nbsp;&nbsp;{% endif %}</span>
+                </div>
+                <div>
+                    <p class="small-label">Email</p>
+                    <span>{{ user.email }}</span>
+                </div>
+            </div>
+            <div class="center">
+                <button type="button" class="edit-profile" onclick="location.href='{% url 'tsv:edit_profile' %}'">Edit Profile</button>
+            </div>
         </div>
     </div>
 {% endblock %}
