@@ -1,6 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
+from django.utils import timezone
+
+
 class Answers(models.Model) :
     username = models.ForeignKey(User, on_delete=models.CASCADE)
     answer_date = models.CharField(max_length=30)
@@ -17,4 +20,4 @@ class Answers(models.Model) :
 class Profile(models.Model) :
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     nickname = models.CharField(max_length=10, blank=True)
-    image = models.ImageField(blank=True)
+    image = models.ImageField(blank=True, upload_to="%Y/%m/%d")
