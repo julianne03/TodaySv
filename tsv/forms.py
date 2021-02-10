@@ -1,5 +1,7 @@
 from django import forms
-from tsv.models import Answers
+from django.contrib.auth.forms import UserChangeForm
+from tsv.models import Answers, Profile
+from django.contrib.auth.models import User
 
 class WeatherForm(forms.ModelForm) :
     class Meta :
@@ -49,3 +51,15 @@ class MealForm(forms.ModelForm) :
             'lunch' : '점심',
             'dinner' : '저녁',
         }
+class CustomUserChangeForm(UserChangeForm) :
+    password = None
+    username = forms.CharField(label="username", max_length=15, required=False)
+    class Meta :
+        model = User
+        fields = ['email', 'username']
+class ProfileForm(forms.ModelForm) :
+    nickname = forms.CharField(label="nickname", max_length=15, required=False)
+    image = forms.ImageField(label="profile_image", required=False)
+    class Meta :
+        model = Profile
+        fields = ['nickname', 'image']
