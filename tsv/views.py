@@ -110,5 +110,24 @@ def answers_meal(request) :
 
 @login_required(login_url='common:login')
 def my_page(request) :
-    person = Profile.objects.get_or_create(user=request.user)
+    person, create = Profile.objects.get_or_create(user=request.user)
     return render(request, 'tsv/my_page.html', {'person' : person})
+
+@login_required(login_url='common:login')
+def edit_profile(request) :
+    if request.method == 'POST' :
+        user_change_form = CustomUserChangeForm(request.POST, instance=request.user)
+        profile_form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        if user_change_form.is_valid() and profile_form.is_valid() :
+            user_change_form.save()
+            profile = profile_form.save(commit=False)
+            profile.image = request.FILES['profile_image']
+            profile.save()
+            return redirect('tsv:my_page')
+        return redirect('tsv:edit_profile')
+    else:
+        user_change_form = CustomUserChangeForm(instance=request.user)
+        profile, create = Profile.objects.get_or_create(user=request.user)
+        profile_form = ProfileForm(instance=profile)
+        context = {'user_change_form' : user_change_form, 'profile_form' : profile_form, 'person' : profile }
+        return render(request, 'tsv/edit_profile_form.html', context)
