@@ -299,6 +299,7 @@ input[type=radio]:checked + label {
     align-self: center;
     margin-top: 2%;
     margin-left: 2%;
+    display: block;
 }
 
 .profile-box img {
@@ -442,4 +443,15 @@ input[type=radio]:checked + label {
 .save_btn:focus,
 .save_btn:active {
   outline: none;
+}
+
+.mytoday-box {
+    float: right;
+    width: 60%;
+    height: 80%;
+    background: white;
+    border: none;
+    border-radius: 10px;
+    margin-right: 2%;
+    margin-top: 2%;
 }

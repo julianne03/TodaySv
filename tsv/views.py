@@ -111,7 +111,9 @@ def answers_meal(request) :
 @login_required(login_url='common:login')
 def my_page(request) :
     person, create = Profile.objects.get_or_create(user=request.user)
-    return render(request, 'tsv/my_page.html', {'person' : person})
+    today = Answers.objects.filter(username_id=request.user.id)
+    context = {'person' : person, 'today' : today}
+    return render(request, 'tsv/my_page.html', context)
 
 @login_required(login_url='common:login')
 def edit_profile(request) :
