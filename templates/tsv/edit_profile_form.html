@@ -10,10 +10,10 @@
             {% include 'form_errors.html' %}
                 <div class="filebox">
                     <span class="small-label">Profile image</span>
-                    {% if person.image.url %}
+                    {% if not person.image == ''  %}
                     <img src="{{ person.image.url }}">
                     {% else %}
-                    <img src="{% static 'images/profile_image' %}">
+                    <img src="{% static 'images/profile_image.png' %}">
                     {% endif %}
                     <label for="profile_image">Choose image</label>
                     <input type="file" id="profile_image" name="profile_image" value="{{ form.image.value|default_if_none:'' }}" accept="image/*">
