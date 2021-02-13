@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="my-page-container">
+        <div class="date">
+            {{ answers.answer_date }}
+        </div>
+        <div class="top">
+            {% if answers.weather == 'sunny' %}
+            <div class="weather"><img src="{% static 'images/sunny.png' %}" width="45" height="45"></div>
+            {% elif answers.weather == 'cloudy' %}
+            <div class="weather"><img src="{% static 'images/cloudy.png' %}" width="45" height="45"></div>
+            {% elif answers.weather == 'rainy' %}
+            <div class="weather"><img src="{% static 'images/rainy.png' %}" width="45" height="45"></div>
+            {% elif answers.weather == 'snowy' %}
+            <div class="weather"><img src="{% static 'images/snowy.png' %}" width="45" height="45"></div>
+            {% elif answers.weather == 'windy' %}
+            <div class="weather"><img src="{% static 'images/windy.png' %}" width="45" height="45"></div>
+            {% else %}
+            <div class="weather">Blank</div>
+            {% endif %}
+            {% if answers.mood == 'happy' %}
+            <div class="mood"><img src="{% static 'images/happy.png' %}" width="40" height="40"></div>
+            {% elif answers.weather == 'soso' %}
+            <div class="mood"><img src="{% static 'images/no-expression.png' %}" width="40" height="40"></div>
+            {% elif answers.weather == 'surprised' %}
+            <div class="mood"><img src="{% static 'images/surprised.png' %}" width="40" height="40"></div>
+            {% elif answers.weather == 'sad' %}
+            <div class="mood"><img src="{% static 'images/crying.png' %}" width="40" height="40"></div>
+            {% elif answers.weather == 'angry' %}
+            <div class="mood"><img src="{% static 'images/annoyed.png' %}" width="40" height="40"></div>
+            {% else %}
+            <div class="mood">Blank</div>
+            {% endif %}
+        </div>
+        <div class="detail-content">
+            <div class="content-color"></div>
+            <div class="question">오늘 아침에 일어난 시간은?</div>
+            <div class="answer">{{ answers.wake_up }}</div>
+            <div class="question">오늘 내가 가장 잘한 일은?</div>
+            <div class="answer">{{ answers.did_well }}</div>
+            <div class="question">오늘 가장 행복했던 일은?</div>
+            <div class="answer">{{ answers.happiness }}</div>
+        </div>
+        <div class="meal-box">
+            <div class="breakfast-box">
+                <div class="breakfast-text"></div>
+                <div class="meal-text">Breakfast</div>
+                <div class="menu-text">{{ answers.breakfast }}</div>
+
+            </div>
+            <div class="lunch-box">
+                <div class="lunch-text"></div>
+                <div class="meal-text">Lunch</div>
+                <div class="menu-text">{{ answers.lunch }}</div>
+
+            </div>
+            <div class="dinner-box">
+                <div class="dinner-text"></div>
+                <div class="meal-text">Dinner</div>
+                <div class="menu-text">{{ answers.dinner }}</div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

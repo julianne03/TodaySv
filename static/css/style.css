@@ -449,9 +449,159 @@ input[type=radio]:checked + label {
     float: right;
     width: 60%;
     height: 80%;
-    background: white;
     border: none;
     border-radius: 10px;
     margin-right: 2%;
     margin-top: 2%;
+    display: inline-block;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.today-container {
+    margin-top: 2%;
+    margin-left: 2%;
+    display: inline-block;
+    flex-direction: row;
+    padding: 10px 20px;
+    border-bottom: 1px solid black;
+    text-align: center;
+    font-size: large;
+    cursor: pointer;
+    color: black;
+}
+
+.today-container a {
+    text-decoration: none;
+    color: black;
+}
+
+.top {
+    display: flex;
+}
+
+.date {
+    display: flex;
+    text-align: center;
+    font-size: xx-large;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+}
+
+.weather {
+    margin-left: 4%;
+}
+
+.mood {
+    margin-left: 2%;
+}
+
+.detail-content {
+    background: white;
+    border-radius: 10px;
+    width: 45%;
+    height: 60%;
+    float: left;
+    margin-left: 4%;
+    margin-top: 3%;
+}
+
+.content-color {
+    background: #f1c40f;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    width: 100%;
+    height: 20%;
+}
+
+.question {
+    font-size: smaller;
+    color: #5f5f5f;
+    margin-top: 3%;
+    margin-left: 3%;
+}
+
+.answer {
+    margin-bottom: 3%;
+    margin-left: 3%;
+}
+
+.meal-box {
+    float: right;
+    width: 40%;
+    margin-right: 4%;
+    margin-left: 4%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.meal-text {
+    font-size: x-large;
+    margin-left: 2%;
+    margin-top: 2%;
+}
+
+.menu-text {
+    font-size: large;
+    margin-left: 2%;
+    color: black;
+}
+
+.breakfast-box {
+    width: 90%;
+    height: 28%;
+    border-radius: 10px;
+    color: #27ae60;
+    background: white;
+    margin-bottom: 5%;
+}
+
+.breakfast-text {
+    float: right;
+    width: 20%;
+    height: 100%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: white;
+    background: #27ae60;
+}
+
+.lunch-box {
+    width: 90%;
+    height: 28%;
+    border-radius: 10px;
+    color: #2980b9;
+    background: white;
+    margin-bottom: 5%;
+}
+
+.lunch-text {
+    float: right;
+    width: 20%;
+    height: 100%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: white;
+    background: #2980b9;
+}
+
+.dinner-box {
+    width: 90%;
+    height: 28%;
+    border-radius: 10px;
+    color: #e67e22;
+    background: white;
+}
+
+.dinner-text {
+    float: right;
+    width: 20%;
+    height: 100%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: white;
+    background: #e67e22;
 }
