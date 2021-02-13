@@ -58,7 +58,7 @@ body {
 .answer-form {
     width: 45%;
 }
-
+/* ------------------weather, mood--------------------- */
 ul {
     display: flex;
     width: 100%;
@@ -86,7 +86,7 @@ input[type=radio]:checked + label {
     border-bottom: 3px solid black;
     animation: fadeIn 1s ease-in-out forwards;
 }
-
+/* ------------------navigation bar--------------------- */
 .logo {
     cursor: pointer;
 }
@@ -133,7 +133,7 @@ input[type=radio]:checked + label {
     color: #484eff;
     animation: fadeIn 0.5s ease-in-out forwards;
 }
-
+/* ------------------login, sign up--------------------- */
 .login_form {
     display: flex;
     flex-direction: column;
@@ -198,7 +198,7 @@ input[type=radio]:checked + label {
 .username_input {
     margin-top: 7%;
 }
-
+/* ------------------form error--------------------- */
 .error_field {
     color: blue;
 }
@@ -206,7 +206,7 @@ input[type=radio]:checked + label {
 .error {
     color: red;
 }
-
+/* ------------------wake up--------------------- */
 .wake_up_input {
     border: none;
     border-bottom: 1px solid black;
@@ -219,7 +219,7 @@ input[type=radio]:checked + label {
     font-size: xx-large;
     font-family: "Noto Sans KR", sans-serif;
 }
-
+/* ------------------did_well, happiness, meal--------------------- */
 .text-form {
     width: 55%;
 }
@@ -254,7 +254,7 @@ input[type=radio]:checked + label {
 #breakfast, #lunch, #dinner {
     width: 90%;
 }
-
+/* ------------------animation--------------------- */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -263,16 +263,7 @@ input[type=radio]:checked + label {
         opacity: 1;
     }
 }
-
-@keyframes fade-out {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
-}
-
+/* ------------------my page--------------------- */
 .my-page-container {
     width: 95%;
     height: 80%;
@@ -352,6 +343,37 @@ input[type=radio]:checked + label {
   outline: none;
 }
 
+.mytoday-box {
+    float: right;
+    width: 60%;
+    height: 80%;
+    border: none;
+    border-radius: 10px;
+    margin-right: 2%;
+    margin-top: 2%;
+    display: inline-block;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.today-container {
+    margin-top: 2%;
+    margin-left: 2%;
+    display: inline-block;
+    flex-direction: row;
+    padding: 10px 20px;
+    border-bottom: 1px solid black;
+    text-align: center;
+    font-size: large;
+    cursor: pointer;
+    color: black;
+}
+
+.today-container a {
+    text-decoration: none;
+    color: black;
+}
+/* ------------------edit profile--------------------- */
 .edit-profile-form {
     margin-left: 2%;
     margin-top: 2%;
@@ -444,38 +466,7 @@ input[type=radio]:checked + label {
 .save_btn:active {
   outline: none;
 }
-
-.mytoday-box {
-    float: right;
-    width: 60%;
-    height: 80%;
-    border: none;
-    border-radius: 10px;
-    margin-right: 2%;
-    margin-top: 2%;
-    display: inline-block;
-    overflow-x: hidden;
-    overflow-y: scroll;
-}
-
-.today-container {
-    margin-top: 2%;
-    margin-left: 2%;
-    display: inline-block;
-    flex-direction: row;
-    padding: 10px 20px;
-    border-bottom: 1px solid black;
-    text-align: center;
-    font-size: large;
-    cursor: pointer;
-    color: black;
-}
-
-.today-container a {
-    text-decoration: none;
-    color: black;
-}
-
+/* --------------------detail----------------------- */
 .top {
     display: flex;
 }
