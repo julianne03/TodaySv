@@ -31,10 +31,14 @@
                 <button type="button" class="edit-profile" onclick="location.href='{% url 'tsv:edit_profile' %}'">Edit Profile</button>
             </div>
         </div>
+        {% if today %}
         <div class="mytoday-box">
             {% for t in today %}
-                {{ t.answer_date }}
+                <div class="today-container">
+                    <a href="{% url 'tsv:detail' t.id %}">{{ t.answer_date }}</a>
+                </div>
             {% endfor %}
         </div>
+        {% endif %}
     </div>
 {% endblock %}
