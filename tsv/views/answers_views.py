@@ -1,16 +1,10 @@
-from django.contrib import messages
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
 from django.utils import timezone
 
-from .forms import *
-from .models import Answers
-from .models import Profile
-
-@login_required(login_url='common:login')
-def index(request) :
-    return render(request, 'tsv/index.html')
+from ..forms import *
+from ..models import Answers
 
 @login_required(login_url='common:login')
 def answers_weather(request) :
@@ -108,38 +102,3 @@ def answers_meal(request) :
         form = MealForm(instance=answer)
     context = {'form': form}
     return render(request, 'tsv/meal_form.html', context)
-
-@login_required(login_url='common:login')
-def my_page(request) :
-    person, create = Profile.objects.get_or_create(user=request.user)
-    today = Answers.objects.filter(username_id=request.user.id)
-    context = {'person' : person, 'today' : today}
-    return render(request, 'tsv/my_page.html', context)
-
-@login_required(login_url='common:login')
-def edit_profile(request) :
-    if request.method == 'POST' :
-        user_change_form = CustomUserChangeForm(request.POST, instance=request.user)
-        profile_form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
-        if user_change_form.is_valid() and profile_form.is_valid() :
-            user_change_form.save()
-            profile = profile_form.save(commit=False)
-            profile.image = request.FILES['profile_image']
-            profile.save()
-            return redirect('tsv:my_page')
-        return redirect('tsv:edit_profile')
-    else:
-        user_change_form = CustomUserChangeForm(instance=request.user)
-        profile, create = Profile.objects.get_or_create(user=request.user)
-        profile_form = ProfileForm(instance=profile)
-        context = {'user_change_form' : user_change_form, 'profile_form' : profile_form, 'person' : profile }
-        return render(request, 'tsv/edit_profile_form.html', context)
-
-@login_required(login_url='common:login')
-def detail(request, answers_id) :
-    answers = get_object_or_404(Answers, pk=answers_id)
-    if request.user.id != answers.username_id :
-        messages.error(request, '확인할 권한이 없습니다.')
-        return redirect('tsv:my_page')
-    context = {'answers' : answers}
-    return render(request, 'tsv/detail.html', context)

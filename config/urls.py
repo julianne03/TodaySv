@@ -1,12 +1,12 @@
 from django.contrib import admin
 from django.urls import path, include
-from tsv import views
+from tsv.views import base_views
 
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', base_views.index, name='index'),
     path('admin/', admin.site.urls),
     path('tsv/', include('tsv.urls')),
     path('common/', include('common.urls')),
