@@ -21,13 +21,13 @@
             {% endif %}
             {% if answers.mood == 'happy' %}
             <div class="mood"><img src="{% static 'images/happy.png' %}" width="40" height="40"></div>
-            {% elif answers.weather == 'soso' %}
+            {% elif answers.mood == 'soso' %}
             <div class="mood"><img src="{% static 'images/no-expression.png' %}" width="40" height="40"></div>
-            {% elif answers.weather == 'surprised' %}
+            {% elif answers.mood == 'surprised' %}
             <div class="mood"><img src="{% static 'images/surprised.png' %}" width="40" height="40"></div>
-            {% elif answers.weather == 'sad' %}
+            {% elif answers.mood == 'sad' %}
             <div class="mood"><img src="{% static 'images/crying.png' %}" width="40" height="40"></div>
-            {% elif answers.weather == 'angry' %}
+            {% elif answers.mood == 'angry' %}
             <div class="mood"><img src="{% static 'images/annoyed.png' %}" width="40" height="40"></div>
             {% else %}
             <div class="mood">Blank</div>
