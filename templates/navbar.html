@@ -1,6 +1,6 @@
 {% load static %}
 <div class="navbar">
-    <img class="logo" src="{% static 'images/todaySv.jpg' %}" width="90" height="60" onclick="location.href='{% url 'tsv:index' %}'" />
+    <img class="logo" src="{% static 'images/today_logo.png' %}" onclick="location.href='{% url 'tsv:index' %}'" />
     <div class="right">
         {% if user.is_authenticated %}
         <a class="username_txt" href="{% url 'tsv:my_page' %}">{{ user.username }}님</a>
